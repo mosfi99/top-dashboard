@@ -362,7 +362,8 @@ body {
 }
 
 .announcement__link {
-	text-align: right;
+	display: flex;
+	justify-content: flex-end;
 	font-size: var(--f-xs);
 	color: var(--clr-dark);
 	opacity: 0.8;
