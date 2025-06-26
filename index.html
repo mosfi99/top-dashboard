@@ -10,14 +10,8 @@
 		<div class="container grid">
 			<!-- header -->
 			<header class="header">
-				<div class="header__grid">
-					<div class="header__buttons">
-						<button class="header__button">New</button>
-						<button class="header__button">Upload</button>
-						<button class="header__button">Share</button>
-					</div>
-
-					<div class="header__search">
+				<div class="header__actions">
+					<div class="search">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							height="24px"
@@ -28,7 +22,7 @@
 								d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
 						</svg>
 						<input
-							class="header__search-input"
+							class="search-input"
 							type="text"
 							name="search"
 							id="search"
@@ -36,33 +30,138 @@
 							aria-label="Search dashboard" />
 					</div>
 
-					<div class="header__user flex-end">
-						<div class="header__user-info">
-							<p class="header__user-name">Cee Mosfi</p>
-							<p class="header__user-handle">(@mosfi99)</p>
+					<div class="other-actions">
+						<div>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								height="24px"
+								viewBox="0 -960 960 960"
+								width="24px"
+								fill="#FFFFFF">
+								<path
+									d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z" />
+							</svg>
 						</div>
-
-						<svg
-							class="user-avatar"
-							xmlns="http://www.w3.org/2000/svg"
-							height="24px"
-							viewBox="0 -960 960 960"
-							width="24px"
-							fill="#e3e3e3">
-							<path
-								d="M620-520q25 0 42.5-17.5T680-580q0-25-17.5-42.5T620-640q-25 0-42.5 17.5T560-580q0 25 17.5 42.5T620-520Zm-280 0q25 0 42.5-17.5T400-580q0-25-17.5-42.5T340-640q-25 0-42.5 17.5T280-580q0 25 17.5 42.5T340-520Zm140 260q68 0 123.5-38.5T684-400h-66q-22 37-58.5 58.5T480-320q-43 0-79.5-21.5T342-400h-66q25 63 80.5 101.5T480-260Zm0 180q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z" />
-						</svg>
+						<div>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								height="24px"
+								viewBox="0 -960 960 960"
+								width="24px"
+								fill="#FFFFFF">
+								<path
+									d="M80-560q0-100 44.5-183.5T244-882l47 64q-60 44-95.5 111T160-560H80Zm720 0q0-80-35.5-147T669-818l47-64q75 55 119.5 138.5T880-560h-80ZM160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z" />
+							</svg>
+						</div>
+						<div>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								height="24px"
+								viewBox="0 -960 960 960"
+								width="24px"
+								fill="#FFFFFF">
+								<path
+									d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+							</svg>
+						</div>
 					</div>
 				</div>
 			</header>
-
+			<!-- logo -->
+			<div class="logo">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					height="24px"
+					viewBox="0 -960 960 960"
+					width="24px"
+					fill="#FFFFFF">
+					<path
+						d="M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400 320v-400h320v400H520Zm-400 0v-240h320v240H120Zm80-400h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z" />
+				</svg>
+				<span class="logo__text">ArtBoard</span>
+			</div>
 			<!-- navbar -->
-			<nav class="nav"></nav>
+			<nav class="nav">
+				<ul class="nav__list">
+					<li>
+						<a href="">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								height="24px"
+								viewBox="0 -960 960 960"
+								width="24px"
+								fill="#FFFFFF">
+								<path
+									d="M280-280q17 0 28.5-11.5T320-320q0-17-11.5-28.5T280-360q-17 0-28.5 11.5T240-320q0 17 11.5 28.5T280-280Zm-40-160h80v-240h-80v240Zm200 160h280v-80H440v80Zm0-160h280v-80H440v80Zm0-160h280v-80H440v80ZM160-120q-33 0-56.5-23.5T80-200v-560q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v560q0 33-23.5 56.5T800-120H160Zm0-80h640v-560H160v560Zm0 0v-560 560Z" />
+							</svg>
+
+							<span>Announcements</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								height="24px"
+								viewBox="0 -960 960 960"
+								width="24px"
+								fill="#FFFFFF">
+								<path
+									d="m136-240-56-56 212-212q35-35 85-35t85 35l46 46q12 12 28.5 12t28.5-12l178-178H640v-80h240v240h-80v-103L621-405q-35 35-85 35t-85-35l-47-47q-11-11-28-11t-28 11L136-240Z" />
+							</svg>
+							<span>Trending</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								height="24px"
+								viewBox="0 -960 960 960"
+								width="24px"
+								fill="#FFFFFF">
+								<path
+									d="M240-120q-66 0-113-47T80-280q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm480 0q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm-480-80q33 0 56.5-23.5T320-280q0-33-23.5-56.5T240-360q-33 0-56.5 23.5T160-280q0 33 23.5 56.5T240-200Zm480 0q33 0 56.5-23.5T800-280q0-33-23.5-56.5T720-360q-33 0-56.5 23.5T640-280q0 33 23.5 56.5T720-200ZM480-520q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T560-680q0-33-23.5-56.5T480-760q-33 0-56.5 23.5T400-680q0 33 23.5 56.5T480-600Zm0-80Zm240 400Zm-480 0Z" />
+							</svg>
+							<span>Projects</span>
+						</a>
+					</li>
+					<li>
+						<a href=""
+							><svg
+								xmlns="http://www.w3.org/2000/svg"
+								height="24px"
+								viewBox="0 -960 960 960"
+								width="24px"
+								fill="#FFFFFF">
+								<path
+									d="M200-246q54-53 125.5-83.5T480-360q83 0 154.5 30.5T760-246v-514H200v514Zm280-194q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm69-80h422q-44-39-99.5-59.5T480-280q-56 0-112.5 20.5T269-200Zm211-320q-25 0-42.5-17.5T420-580q0-25 17.5-42.5T480-640q25 0 42.5 17.5T540-580q0 25-17.5 42.5T480-520Zm0 17Z" />
+							</svg>
+							<span>Profile</span>
+						</a>
+					</li>
+
+					<li>
+						<a href="">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								height="24px"
+								viewBox="0 -960 960 960"
+								width="24px"
+								fill="#FFFFFF">
+								<path
+									d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z" />
+							</svg>
+							<span>Settings</span></a
+						>
+					</li>
+				</ul>
+			</nav>
 
 			<!-- main > projects + announcements + trending -->
 			<main class="main">
 				<section class="projects">
-					<h2 class="main__title">Your Projects</h2>
+					<h2 class="section__title">Projects</h2>
 					<div class="projects__grid">
 						<div class="card">
 							<div class="card__img-wrapper">
@@ -428,7 +527,7 @@
 				</section>
 				<div class="announcements-trending">
 					<section class="announcements">
-						<h2 class="main__title">Announcements</h2>
+						<h2 class="section__title">Announcements</h2>
 						<div class="card">
 							<div class="announcement">
 								<h3 class="announcement__title">Site Maintenance</h3>
@@ -460,16 +559,14 @@
 						</div>
 					</section>
 					<section class="trending">
-						<h2 class="main__title">Trending</h2>
+						<h2 class="section__title">Trending</h2>
 						<div class="card">
 							<div class="trend">
-								<div class="user-avatar-wrapper">
-									<img
-										loading="lazy"
-										class="user-avatar"
-										src="images/JohnVarley.jpg"
-										alt="Avatar of John Varley" />
-								</div>
+								<img
+									loading="lazy"
+									class="user-avatar"
+									src="images/JohnVarley.jpg"
+									alt="Avatar of John Varley" />
 								<div class="trend__user-info">
 									<div class="trend__user-handle">@johnyVarley</div>
 									<p class="trend__user-bio">Sleeping</p>
@@ -478,13 +575,11 @@
 							<hr />
 
 							<div class="trend">
-								<div class="user-avatar-wrapper">
-									<img
-										loading="lazy"
-										class="user-avatar"
-										src="images/BeatriceBright.jpg"
-										alt="Avatar of Beatrice Bright" />
-								</div>
+								<img
+									loading="lazy"
+									class="user-avatar"
+									src="images/BeatriceBright.jpg"
+									alt="Avatar of Beatrice Bright" />
 								<div class="trend__user-info">
 									<div class="trend__user-handle">@beatriceBright</div>
 									<p class="trend__user-bio">Chasing my dream</p>
@@ -493,13 +588,11 @@
 							<hr />
 
 							<div class="trend">
-								<div class="user-avatar-wrapper">
-									<img
-										loading="lazy"
-										class="user-avatar"
-										src="images/ThomasMatthewsRooke.jpg"
-										alt="Avatar of Thomas Matthews Rooke" />
-								</div>
+								<img
+									loading="lazy"
+									class="user-avatar"
+									src="images/ThomasMatthewsRooke.jpg"
+									alt="Avatar of Thomas Matthews Rooke" />
 								<div class="trend__user-info">
 									<div class="trend__user-handle">@mrRooke</div>
 									<p class="trend__user-bio">On Spring Break</p>
@@ -507,13 +600,11 @@
 							</div>
 							<hr />
 							<div class="trend">
-								<div class="user-avatar-wrapper">
-									<img
-										loading="lazy"
-										class="user-avatar"
-										src="images/ElijahWalton.jpg"
-										alt="Avatar of Elijah Walton" />
-								</div>
+								<img
+									loading="lazy"
+									class="user-avatar"
+									src="images/ElijahWalton.jpg"
+									alt="Avatar of Elijah Walton" />
 								<div class="trend__user-info">
 									<div class="trend__user-handle">@elijahWalton</div>
 									<p class="trend__user-bio">Camping and painting</p>
