@@ -4,9 +4,19 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./styles.css" />
-		<title>Dashboard</title>
+		<script src="script.js" defer></script>
+		<title>ArtBoard</title>
 	</head>
 	<body>
+		<!-- modal -->
+		<div class="modal" id="imageModal">
+			<div class="modal__content">
+				<span class="modal__close">&times;</span>
+				<img class="modal__image" id="modalImage" alt="Expanded artwork view" />
+				<div class="modal__caption" id="modalCaption"></div>
+			</div>
+		</div>
+
 		<!-- SVG ICONS DEFINITIONS -->
 		<svg style="display: none">
 			<symbol id="icon-search" viewBox="0 -960 960 960">
@@ -63,52 +73,53 @@
 		</svg>
 		<!-- END SVG ICONS DEFINITIONS -->
 
-		<div class="container grid">
+		<div class="container">
 			<!-- logo -->
 			<div class="logo">
-				<svg class="icon icon-logo" aria-hidden="true">
+				<svg class="logo__icon icon" aria-hidden="true">
 					<use href="#icon-logo"></use>
 				</svg>
 				<span class="logo__text">ArtBoard</span>
 			</div>
+
 			<!-- nav -->
 			<nav class="nav">
 				<ul class="nav__list">
-					<li>
-						<a href="#announcements">
-							<svg class="icon icon-announcements" aria-hidden="true">
+					<li class="nav__item">
+						<a class="nav__link" href="#announcements">
+							<svg class="nav__icon icon" aria-hidden="true">
 								<use href="#icon-announcements"></use>
 							</svg>
 							<span>Announcements</span>
 						</a>
 					</li>
-					<li>
-						<a href="#trending">
-							<svg class="icon icon-trending" aria-hidden="true">
+					<li class="nav__item">
+						<a class="nav__link" href="#trending">
+							<svg class="nav__icon icon" aria-hidden="true">
 								<use href="#icon-trending"></use>
 							</svg>
 							<span>Trending</span>
 						</a>
 					</li>
-					<li>
-						<a href="#projects">
-							<svg class="icon icon-projects" aria-hidden="true">
+					<li class="nav__item">
+						<a class="nav__link" href="#projects">
+							<svg class="nav__icon icon" aria-hidden="true">
 								<use href="#icon-projects"></use>
 							</svg>
 							<span>Projects</span>
 						</a>
 					</li>
-					<li>
-						<a href="">
-							<svg class="icon icon-profile" aria-hidden="true">
+					<li class="nav__item">
+						<a class="nav__link" href="#">
+							<svg class="nav__icon icon" aria-hidden="true">
 								<use href="#icon-profile"></use>
 							</svg>
 							<span>Profile</span>
 						</a>
 					</li>
-					<li>
-						<a href="">
-							<svg class="icon icon-settings" aria-hidden="true">
+					<li class="nav__item">
+						<a class="nav__link" href="#">
+							<svg class="nav__icon icon" aria-hidden="true">
 								<use href="#icon-settings"></use>
 							</svg>
 							<span>Settings</span>
@@ -116,37 +127,36 @@
 					</li>
 				</ul>
 			</nav>
+
 			<!-- actions-bar -->
-			<div class="actions__bar-wrapper">
-				<div class="actions__bar">
-					<div class="search">
-						<svg class="icon icon-search" aria-hidden="true">
-							<use href="#icon-search"></use>
+			<div class="actions">
+				<div class="search">
+					<svg class="search__icon icon" aria-hidden="true">
+						<use href="#icon-search"></use>
+					</svg>
+					<input
+						class="search__input"
+						type="text"
+						name="search"
+						id="search"
+						placeholder="Search..."
+						aria-label="Search dashboard" />
+				</div>
+				<div class="actions__icons">
+					<div class="actions__icon">
+						<svg class="message__icon icon" aria-hidden="true">
+							<use href="#icon-message"></use>
 						</svg>
-						<input
-							class="search-input"
-							type="text"
-							name="search"
-							id="search"
-							placeholder="Search..."
-							aria-label="Search dashboard" />
 					</div>
-					<div class="other-actions">
-						<div>
-							<svg class="icon icon-message" aria-hidden="true">
-								<use href="#icon-message"></use>
-							</svg>
-						</div>
-						<div>
-							<svg class="icon icon-bell" aria-hidden="true">
-								<use href="#icon-bell"></use>
-							</svg>
-						</div>
-						<div>
-							<svg class="icon icon-add" aria-hidden="true">
-								<use href="#icon-add"></use>
-							</svg>
-						</div>
+					<div class="actions__icon">
+						<svg class="bell__icon icon" aria-hidden="true">
+							<use href="#icon-bell"></use>
+						</svg>
+					</div>
+					<div class="actions__icon">
+						<svg class="add__icon icon" aria-hidden="true">
+							<use href="#icon-add"></use>
+						</svg>
 					</div>
 				</div>
 			</div>
@@ -156,22 +166,41 @@
 				<section id="projects" class="projects">
 					<h2 class="section__title">Projects</h2>
 					<div class="projects__grid">
-						<div class="card">
-							<div class="card__img-wrapper">
+						<div class="card art-card">
+							<div class="art-card__image-container">
 								<img
 									loading="lazy"
-									class="card__img"
+									class="card__image"
 									src="images/BeatriceBright.jpg"
 									alt="Paint by Beatrice Bright" />
 							</div>
-							<h3 class="card__title">Project title</h3>
-							<p class="card__description">
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								Quaerat sapiente commodi impedit quia ratione corrupti eum
-								veniam excepturi porro nobis quos explicabo enim architecto
-								deleniti tempore, quas accusamus nisi velit!
+							<h2 class="art-card__title">Beatrice Bright (1877–1940)</h2>
+							<h3 class="art-card__subtitle"><em>Atlantic Rollers</em></h3>
+							<div class="art-card__info">
+								<p class="art-card__text"><strong>Date:</strong> 1900–1940</p>
+								<p class="art-card__text">
+									<strong>Medium:</strong> Oil on canvas
+								</p>
+								<p class="art-card__text">
+									<strong>Dimensions:</strong> Not specified
+								</p>
+								<p class="art-card__text">
+									<strong>Collection:</strong> Birmingham Museums Trust /
+									Birmingham Museum & Art Gallery
+								</p>
+								<p class="art-card__text">
+									<strong>Accession no.:</strong> 1940P555
+								</p>
+							</div>
+							<p class="art-card__description">
+								A dramatic seascape evoking the power of the Atlantic, this
+								painting by Beatrice Bright features bold brushwork and deep
+								blue tones to capture the rhythmic force of crashing waves under
+								an expansive sky. The composition conveys the awe-inspiring
+								energy of the open sea.
 							</p>
-							<div class="card__actions flex-end">
+
+							<div class="card__actions">
 								<svg class="icon icon-heart" aria-hidden="true">
 									<use href="#icon-heart"></use>
 								</svg>
@@ -183,22 +212,42 @@
 								</svg>
 							</div>
 						</div>
-						<div class="card">
-							<div class="card__img-wrapper">
+						<div class="card art-card">
+							<div class="art-card__image-container">
 								<img
 									loading="lazy"
-									class="card__img"
+									class="card__image"
 									src="images/RosaBrett.jpg"
 									alt="Paint by Rosa Brett" />
 							</div>
-							<h3 class="card__title">Project title</h3>
-							<p class="card__description">
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								Quaerat sapiente commodi impedit quia ratione corrupti eum
-								veniam excepturi porro nobis quos explicabo enim architecto
-								deleniti tempore, quas accusamus nisi velit!
+							<h2 class="art-card__title">Rosa Brett (1829–1882)</h2>
+							<h3 class="art-card__subtitle"><em>From Bluebell Hill</em></h3>
+							<div class="art-card__info">
+								<p class="art-card__text"><strong>Date:</strong> 1851</p>
+								<p class="art-card__text">
+									<strong>Medium:</strong> Watercolour with touches of
+									bodycolour on paper
+								</p>
+								<p class="art-card__text">
+									<strong>Dimensions:</strong> Not specified
+								</p>
+								<p class="art-card__text">
+									<strong>Collection:</strong> Birmingham Museums Trust /
+									Birmingham Museum & Art Gallery
+								</p>
+								<p class="art-card__text">
+									<strong>Accession no.:</strong> 2002P25
+								</p>
+							</div>
+							<p class="art-card__description">
+								A delicate landscape showcasing Rosa Brett’s refined technique,
+								this piece depicts a peaceful countryside scene with cottages
+								nestled among gentle hills. The soft washes of watercolour and
+								subtle architectural details reflect Brett’s affinity for nature
+								and the Pre-Raphaelite attention to precision.
 							</p>
-							<div class="card__actions flex-end">
+
+							<div class="card__actions">
 								<svg class="icon icon-heart" aria-hidden="true">
 									<use href="#icon-heart"></use>
 								</svg>
@@ -210,22 +259,43 @@
 								</svg>
 							</div>
 						</div>
-						<div class="card">
-							<div class="card__img-wrapper">
+						<div class="card art-card">
+							<div class="art-card__image-container">
 								<img
 									loading="lazy"
-									class="card__img"
+									class="card__image"
 									src="images/ElijahWalton1.jpg"
 									alt="Paint by Elijah Walton" />
 							</div>
-							<h3 class="card__title">Project title</h3>
-							<p class="card__description">
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								Quaerat sapiente commodi impedit quia ratione corrupti eum
-								veniam excepturi porro nobis quos explicabo enim architecto
-								deleniti tempore, quas accusamus nisi velit!
+							<h2 class="art-card__title">Elijah Walton (1832–1880)</h2>
+							<h3 class="art-card__subtitle">
+								<em>In The Garden Of The Rose And Crown</em>
+							</h3>
+							<div class="art-card__info">
+								<p class="art-card__text"><strong>Date:</strong> 1850–1880</p>
+								<p class="art-card__text">
+									<strong>Medium:</strong> Not specified
+								</p>
+								<p class="art-card__text">
+									<strong>Dimensions:</strong> Not specified
+								</p>
+								<p class="art-card__text">
+									<strong>Collection:</strong> Birmingham Museums Trust /
+									Birmingham Museum & Art Gallery
+								</p>
+								<p class="art-card__text">
+									<strong>Accession no.:</strong> 1920P429
+								</p>
+							</div>
+							<p class="art-card__description">
+								This atmospheric work by Elijah Walton captures a quiet moment
+								in the garden of the Rose and Crown. With a focus on light and
+								composition, Walton evokes a sense of stillness and intimacy,
+								blending architectural and natural elements in a tranquil
+								setting typical of his poetic landscape style.
 							</p>
-							<div class="card__actions flex-end">
+
+							<div class="card__actions">
 								<svg class="icon icon-heart" aria-hidden="true">
 									<use href="#icon-heart"></use>
 								</svg>
@@ -237,22 +307,43 @@
 								</svg>
 							</div>
 						</div>
-						<div class="card">
-							<div class="card__img-wrapper">
+						<div class="card art-card">
+							<div class="art-card__image-container">
 								<img
 									loading="lazy"
-									class="card__img"
+									class="card__image"
 									src="images/ElijahWalton.jpg"
 									alt="Paint by Elijah Walton" />
 							</div>
-							<h3 class="card__title">Project title</h3>
-							<p class="card__description">
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								Quaerat sapiente commodi impedit quia ratione corrupti eum
-								veniam excepturi porro nobis quos explicabo enim architecto
-								deleniti tempore, quas accusamus nisi velit!
+							<h2 class="art-card__title">Elijah Walton (1832–1880)</h2>
+							<h3 class="art-card__subtitle">
+								<em>Cofton From Rednal, Moonlight</em>
+							</h3>
+							<div class="art-card__info">
+								<p class="art-card__text"><strong>Date:</strong> 1852</p>
+								<p class="art-card__text">
+									<strong>Medium:</strong> Watercolour
+								</p>
+								<p class="art-card__text">
+									<strong>Dimensions:</strong> Not specified
+								</p>
+								<p class="art-card__text">
+									<strong>Collection:</strong> Birmingham Museums Trust /
+									Birmingham Museum & Art Gallery
+								</p>
+								<p class="art-card__text">
+									<strong>Accession no.:</strong> 1920P435
+								</p>
+							</div>
+							<p class="art-card__description">
+								Painted in 1852, this moonlit landscape by Elijah Walton
+								presents a serene view of Cofton from Rednal under a night sky.
+								The watercolour captures the subtle luminosity of moonlight over
+								hills and countryside, blending topographical precision with a
+								dreamlike atmosphere characteristic of Walton's nocturnes.
 							</p>
-							<div class="card__actions flex-end">
+
+							<div class="card__actions">
 								<svg class="icon icon-heart" aria-hidden="true">
 									<use href="#icon-heart"></use>
 								</svg>
@@ -264,22 +355,44 @@
 								</svg>
 							</div>
 						</div>
-						<div class="card">
-							<div class="card__img-wrapper">
+						<div class="card art-card">
+							<div class="art-card__image-container">
 								<img
 									loading="lazy"
-									class="card__img"
+									class="card__image"
 									src="images/HenryGastineau.jpg"
 									alt="Paint by Henry Gastineau" />
 							</div>
-							<h3 class="card__title">Project title</h3>
-							<p class="card__description">
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								Quaerat sapiente commodi impedit quia ratione corrupti eum
-								veniam excepturi porro nobis quos explicabo enim architecto
-								deleniti tempore, quas accusamus nisi velit!
+							<h2 class="art-card__title">Henry Gastineau (1791–1876)</h2>
+							<h3 class="art-card__subtitle">
+								<em>Killiecrankie Pass</em>
+							</h3>
+							<div class="art-card__info">
+								<p class="art-card__text"><strong>Date:</strong> 1820–1879</p>
+								<p class="art-card__text">
+									<strong>Medium:</strong> Watercolour
+								</p>
+								<p class="art-card__text">
+									<strong>Dimensions:</strong> Not specified
+								</p>
+								<p class="art-card__text">
+									<strong>Collection:</strong> Birmingham Museums Trust /
+									Birmingham Museum & Art Gallery
+								</p>
+								<p class="art-card__text">
+									<strong>Accession no.:</strong> 1943P261
+								</p>
+							</div>
+							<p class="art-card__description">
+								A scenic view possibly depicting the Killiecrankie Pass in
+								Scotland, this watercolour by Henry Gastineau combines the
+								grandeur of mountainous terrain with the tranquility of autumnal
+								nature. Framed by rocks and a winding rural road, deer appear in
+								the landscape, enhancing the sense of untouched wilderness and
+								romantic exploration.
 							</p>
-							<div class="card__actions flex-end">
+
+							<div class="card__actions">
 								<svg class="icon icon-heart" aria-hidden="true">
 									<use href="#icon-heart"></use>
 								</svg>
@@ -291,22 +404,42 @@
 								</svg>
 							</div>
 						</div>
-						<div class="card">
-							<div class="card__img-wrapper">
+						<div class="card art-card">
+							<div class="art-card__image-container">
 								<img
 									loading="lazy"
-									class="card__img"
+									class="card__image"
 									src="images/JohnVarley.jpg"
 									alt="Paint by John Varley" />
 							</div>
-							<h3 class="card__title">Project title</h3>
-							<p class="card__description">
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								Quaerat sapiente commodi impedit quia ratione corrupti eum
-								veniam excepturi porro nobis quos explicabo enim architecto
-								deleniti tempore, quas accusamus nisi velit!
+							<h2 class="art-card__title">John Varley (1778–1842)</h2>
+							<h3 class="art-card__subtitle">
+								<em>From Capel Curig Looking Toward Gwynant</em>
+							</h3>
+							<div class="art-card__info">
+								<p class="art-card__text"><strong>Date:</strong> 1801</p>
+								<p class="art-card__text">
+									<strong>Medium:</strong> Watercolour
+								</p>
+								<p class="art-card__text">
+									<strong>Dimensions:</strong> Not specified
+								</p>
+								<p class="art-card__text">
+									<strong>Collection:</strong> Birmingham Museums Trust /
+									Birmingham Museum & Art Gallery
+								</p>
+								<p class="art-card__text">
+									<strong>Accession no.:</strong> 1953P426
+								</p>
+							</div>
+							<p class="art-card__description">
+								This early 19th-century watercolour by John Varley presents a
+								sweeping view from Capel Curig toward the Gwynant valley in
+								Snowdonia. Varley captures the rugged beauty of the Welsh
+								mountains under a clear sky, using light and colour to convey
+								the majesty of the natural landscape.
 							</p>
-							<div class="card__actions flex-end">
+							<div class="card__actions">
 								<svg class="icon icon-heart" aria-hidden="true">
 									<use href="#icon-heart"></use>
 								</svg>
@@ -318,22 +451,42 @@
 								</svg>
 							</div>
 						</div>
-						<div class="card">
-							<div class="card__img-wrapper">
+						<div class="card art-card">
+							<div class="art-card__image-container">
 								<img
 									loading="lazy"
-									class="card__img"
+									class="card__image"
 									src="images/RobertGweloGoodman.jpg"
 									alt="Paint by Robert Gwelo Goodman" />
 							</div>
-							<h3 class="card__title">Project title</h3>
-							<p class="card__description">
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								Quaerat sapiente commodi impedit quia ratione corrupti eum
-								veniam excepturi porro nobis quos explicabo enim architecto
-								deleniti tempore, quas accusamus nisi velit!
+							<h2 class="art-card__title">Robert Gwelo Goodman (1871–1939)</h2>
+							<h3 class="art-card__subtitle">
+								<em>The Karoo, Cape Of Good Hope At Evening</em>
+							</h3>
+							<div class="art-card__info">
+								<p class="art-card__text"><strong>Date:</strong> 1924</p>
+								<p class="art-card__text">
+									<strong>Medium:</strong> Oil on canvas
+								</p>
+								<p class="art-card__text">
+									<strong>Dimensions:</strong> Not specified
+								</p>
+								<p class="art-card__text">
+									<strong>Collection:</strong> Birmingham Museums Trust /
+									Birmingham Museum & Art Gallery
+								</p>
+								<p class="art-card__text">
+									<strong>Accession no.:</strong> 1924P249
+								</p>
+							</div>
+							<p class="art-card__description">
+								This evocative painting by Robert Gwelo Goodman captures the
+								Karoo landscape at dusk. Bathed in warm evening light, the South
+								African terrain is rendered with a palette of golden and blue
+								tones, reflecting the quiet majesty of the Cape of Good Hope as
+								day transitions into night.
 							</p>
-							<div class="card__actions flex-end">
+							<div class="card__actions">
 								<svg class="icon icon-heart" aria-hidden="true">
 									<use href="#icon-heart"></use>
 								</svg>
@@ -345,22 +498,41 @@
 								</svg>
 							</div>
 						</div>
-						<div class="card">
-							<div class="card__img-wrapper">
+						<div class="card art-card">
+							<div class="art-card__image-container">
 								<img
 									loading="lazy"
-									class="card__img"
+									class="card__image"
 									src="images/ThomasMatthewsRooke.jpg"
 									alt="Paint by Thomas Matthews Rooke" />
 							</div>
-							<h3 class="card__title">Project title</h3>
-							<p class="card__description">
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								Quaerat sapiente commodi impedit quia ratione corrupti eum
-								veniam excepturi porro nobis quos explicabo enim architecto
-								deleniti tempore, quas accusamus nisi velit!
+							<h2 class="art-card__title">Thomas Matthews Rooke (1842–1942)</h2>
+							<h3 class="art-card__subtitle"><em>Compton Wynyates</em></h3>
+							<div class="art-card__info">
+								<p class="art-card__text"><strong>Date:</strong> 1916</p>
+								<p class="art-card__text">
+									<strong>Medium:</strong> Watercolour
+								</p>
+								<p class="art-card__text">
+									<strong>Dimensions:</strong> Not specified
+								</p>
+								<p class="art-card__text">
+									<strong>Collection:</strong> Birmingham Museums Trust /
+									Birmingham Museum & Art Gallery
+								</p>
+								<p class="art-card__text">
+									<strong>Accession no.:</strong> 1917P5
+								</p>
+							</div>
+							<p class="art-card__description">
+								This finely detailed watercolour by Thomas Matthews Rooke
+								depicts the Tudor manor house of Compton Wynyates in
+								Warwickshire. With architectural precision and a romantic
+								sensibility, Rooke illustrates the historic structure nestled in
+								the natural English landscape, surrounded by greenery and bathed
+								in gentle light.
 							</p>
-							<div class="card__actions flex-end">
+							<div class="card__actions">
 								<svg class="icon icon-heart" aria-hidden="true">
 									<use href="#icon-heart"></use>
 								</svg>
@@ -374,7 +546,9 @@
 						</div>
 					</div>
 				</section>
-				<div class="announcements-trending">
+
+				<aside class="sidebar">
+					<!-- announcements -->
 					<section id="announcements" class="announcements">
 						<h2 class="section__title">Announcements</h2>
 						<div class="card">
@@ -384,18 +558,18 @@
 									Vestibulum condimentum tellus lacus, in accumsan elit maximus
 									ac. Donec hendrerit sodales congue...
 								</p>
-								<a class="announcement__link flex-end" href="#">Read more →</a>
+								<a class="announcement__link" href="#">Read more →</a>
 							</div>
-							<hr />
+							<hr class="divider" />
 							<div class="announcement">
 								<h3 class="announcement__title">Community Share Day</h3>
 								<p class="announcement__body">
 									Nam vel lectus tincidunt, rutrum nulla eu, ornare libero.
 									Aliquam dictum accumsan porttitor...
 								</p>
-								<a class="announcement__link flex-end" href="#">Read more →</a>
+								<a class="announcement__link" href="#">Read more →</a>
 							</div>
-							<hr />
+							<hr class="divider" />
 							<div class="announcement">
 								<h3 class="announcement__title">Updated Privacy Policy</h3>
 								<p class="announcement__body">
@@ -403,71 +577,73 @@
 									condimentum ante auctor. Cras fringilla sagittis sem in
 									mattis...
 								</p>
-								<a class="announcement__link flex-end" href="#">Read more →</a>
+								<a class="announcement__link" href="#">Read more →</a>
 							</div>
 						</div>
 					</section>
+
+					<!-- trending -->
 					<section id="trending" class="trending">
 						<h2 class="section__title">Trending</h2>
 						<div class="card">
 							<div class="trend">
 								<img
 									loading="lazy"
-									class="user-avatar"
+									class="trend__avatar"
 									src="images/JohnVarley.jpg"
 									alt="Avatar of John Varley" />
-								<div class="trend__user-info">
-									<div class="trend__user-handle">@johnyVarley</div>
-									<p class="trend__user-bio">Sleeping</p>
+								<div class="trend__info">
+									<div class="trend__username">@johnyVarley</div>
+									<p class="trend__bio">Sleeping</p>
 								</div>
 							</div>
-							<hr />
+							<hr class="divider" />
 							<div class="trend">
 								<img
 									loading="lazy"
-									class="user-avatar"
+									class="trend__avatar"
 									src="images/BeatriceBright.jpg"
 									alt="Avatar of Beatrice Bright" />
-								<div class="trend__user-info">
-									<div class="trend__user-handle">@beatriceBright</div>
-									<p class="trend__user-bio">Chasing waves</p>
+								<div class="trend__info">
+									<div class="trend__username">@beatriceBright</div>
+									<p class="trend__bio">Chasing waves</p>
 								</div>
 							</div>
-							<hr />
+							<hr class="divider" />
 							<div class="trend">
 								<img
 									loading="lazy"
-									class="user-avatar"
+									class="trend__avatar"
 									src="images/ThomasMatthewsRooke.jpg"
 									alt="Avatar of Thomas Matthews Rooke" />
-								<div class="trend__user-info">
-									<div class="trend__user-handle">@mrRooke</div>
-									<p class="trend__user-bio">On Spring Break</p>
+								<div class="trend__info">
+									<div class="trend__username">@mrRooke</div>
+									<p class="trend__bio">On Spring Break</p>
 								</div>
 							</div>
-							<hr />
+							<hr class="divider" />
 							<div class="trend">
 								<img
 									loading="lazy"
-									class="user-avatar"
+									class="trend__avatar"
 									src="images/ElijahWalton.jpg"
 									alt="Avatar of Elijah Walton" />
-								<div class="trend__user-info">
-									<div class="trend__user-handle">@elijahWalton</div>
-									<p class="trend__user-bio">Camping and painting</p>
+								<div class="trend__info">
+									<div class="trend__username">@elijahWalton</div>
+									<p class="trend__bio">Camping and painting</p>
 								</div>
 							</div>
 						</div>
 					</section>
-				</div>
+				</aside>
 			</main>
 			<!-- footer -->
 			<footer class="footer">
-				<div class="credits">
+				<div class="footer__content">
 					<p>
 						Images by
 						<a
-							class="credits__link"
+							class="footer__link"
 							href="https://unsplash.com/@birminghammuseumstrust?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
 							rel="noopener noreferrer"
 							target="_blank"
@@ -475,7 +651,7 @@
 						>
 						on
 						<a
-							class="credits__link"
+							class="footer__link"
 							href="https://unsplash.com/photos/a-painting-of-a-large-body-of-water-B5evCyxk9Uo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
 							rel="noopener noreferrer"
 							target="_blank"
@@ -485,7 +661,7 @@
 					<p>
 						Designed & developed by
 						<a
-							class="credits__link"
+							class="footer__link"
 							href="https://github.com/mosfi99"
 							rel="noopener noreferrer"
 							target="_blank"
