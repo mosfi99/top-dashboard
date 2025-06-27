@@ -443,6 +443,7 @@ input:focus,
 
 /* modal */
 .modal {
+	display: none; /* for js modal closing event */
 	position: fixed;
 	z-index: 1000;
 	width: 100%;
