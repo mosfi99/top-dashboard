@@ -64,9 +64,61 @@
 		<!-- END SVG ICONS DEFINITIONS -->
 
 		<div class="container grid">
-			<!-- header -->
-			<header class="header">
-				<div class="header__actions">
+			<!-- logo -->
+			<div class="logo">
+				<svg class="icon icon-logo" aria-hidden="true">
+					<use href="#icon-logo"></use>
+				</svg>
+				<span class="logo__text">ArtBoard</span>
+			</div>
+			<!-- nav -->
+			<nav class="nav">
+				<ul class="nav__list">
+					<li>
+						<a href="#announcements">
+							<svg class="icon icon-announcements" aria-hidden="true">
+								<use href="#icon-announcements"></use>
+							</svg>
+							<span>Announcements</span>
+						</a>
+					</li>
+					<li>
+						<a href="#trending">
+							<svg class="icon icon-trending" aria-hidden="true">
+								<use href="#icon-trending"></use>
+							</svg>
+							<span>Trending</span>
+						</a>
+					</li>
+					<li>
+						<a href="#projects">
+							<svg class="icon icon-projects" aria-hidden="true">
+								<use href="#icon-projects"></use>
+							</svg>
+							<span>Projects</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<svg class="icon icon-profile" aria-hidden="true">
+								<use href="#icon-profile"></use>
+							</svg>
+							<span>Profile</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<svg class="icon icon-settings" aria-hidden="true">
+								<use href="#icon-settings"></use>
+							</svg>
+							<span>Settings</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<!-- actions-bar -->
+			<div class="actions__bar-wrapper">
+				<div class="actions__bar">
 					<div class="search">
 						<svg class="icon icon-search" aria-hidden="true">
 							<use href="#icon-search"></use>
@@ -97,62 +149,11 @@
 						</div>
 					</div>
 				</div>
-			</header>
-			<!-- logo -->
-			<div class="logo">
-				<svg class="icon icon-logo" aria-hidden="true">
-					<use href="#icon-logo"></use>
-				</svg>
-				<span class="logo__text">ArtBoard</span>
 			</div>
-			<!-- navbar -->
-			<nav class="nav">
-				<ul class="nav__list">
-					<li>
-						<a href="">
-							<svg class="icon icon-announcements" aria-hidden="true">
-								<use href="#icon-announcements"></use>
-							</svg>
-							<span>Announcements</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<svg class="icon icon-trending" aria-hidden="true">
-								<use href="#icon-trending"></use>
-							</svg>
-							<span>Trending</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<svg class="icon icon-projects" aria-hidden="true">
-								<use href="#icon-projects"></use>
-							</svg>
-							<span>Projects</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<svg class="icon icon-profile" aria-hidden="true">
-								<use href="#icon-profile"></use>
-							</svg>
-							<span>Profile</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<svg class="icon icon-settings" aria-hidden="true">
-								<use href="#icon-settings"></use>
-							</svg>
-							<span>Settings</span>
-						</a>
-					</li>
-				</ul>
-			</nav>
+
 			<!-- main > projects + announcements + trending -->
 			<main class="main">
-				<section class="projects">
+				<section id="projects" class="projects">
 					<h2 class="section__title">Projects</h2>
 					<div class="projects__grid">
 						<div class="card">
@@ -374,7 +375,7 @@
 					</div>
 				</section>
 				<div class="announcements-trending">
-					<section class="announcements">
+					<section id="announcements" class="announcements">
 						<h2 class="section__title">Announcements</h2>
 						<div class="card">
 							<div class="announcement">
@@ -406,7 +407,7 @@
 							</div>
 						</div>
 					</section>
-					<section class="trending">
+					<section id="trending" class="trending">
 						<h2 class="section__title">Trending</h2>
 						<div class="card">
 							<div class="trend">
@@ -461,7 +462,7 @@
 				</div>
 			</main>
 			<!-- footer -->
-			<footer class="footer flex-center">
+			<footer class="footer">
 				<div class="credits">
 					<p>
 						Images by
